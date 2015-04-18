@@ -1,15 +1,15 @@
 class EmergenciesController < ApplicationController
     
     def new
-        render status: 404, :json => { 'message' => 'page not found' }
+        render_404
     end
     
     def edit
-        render status: 404, :json => { 'message' => 'page not found' }
+        render_404
     end
     
     def destroy
-        render status: 404, :json => { 'message' => 'page not found' }
+        render_404
     end
     
 end
