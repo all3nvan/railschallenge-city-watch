@@ -1,7 +1,5 @@
 class EmergenciesController < ApplicationController
     
-    require 'json'
-    
     def new
         render_404
     end
