@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-    resources :emergencies, only: [:new, :edit, :destroy]
+    resources :emergencies
 end
