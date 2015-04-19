@@ -2,7 +2,8 @@ class Responder < ActiveRecord::Base
     
     validates :capacity, presence: true,
                          numericality: { greater_than_or_equal_to: 1,
-                                         less_than_or_equal_to: 5 }
+                                         less_than_or_equal_to: 5,
+                                         message: 'is not included in the list' }
     validates :name, presence: true, uniqueness: true
     validates :type, presence: true
     validates_absence_of :emergency_code, message: 'found unpermitted parameter: emergency_code'
