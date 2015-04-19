@@ -1,15 +1,14 @@
 class EmergenciesController < ApplicationController
     
+    before_action :render_404, only: [:new, :edit, :destroy]
+    
     def new
-        render_404
     end
     
     def edit
-        render_404
     end
     
     def destroy
-        render_404
     end
     
     def index
