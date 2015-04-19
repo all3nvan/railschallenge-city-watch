@@ -12,6 +12,11 @@ class EmergenciesController < ApplicationController
         render_404
     end
     
+    def index
+        @emergencies = Emergency.all
+        render status: :ok, json: { 'emergencies' => @emergencies }
+    end
+    
     def create
         @emergency = Emergency.new(emergency_params)
         if @emergency.save
