@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20150419101022) do
     t.string   "type"
     t.string   "name"
     t.integer  "capacity"
-    t.boolean  "on_duty"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "on_duty",        default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end

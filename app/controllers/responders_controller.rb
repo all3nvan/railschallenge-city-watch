@@ -14,7 +14,12 @@ class RespondersController < ApplicationController
     def create
         @responder = Responder.new(responder_params)
         if @responder.save
-            render status: :created, json: { 'responder' => @responder }
+            render status: :created,
+                     json: { 'responder' => @responder.as_json(only: [:emergency_code,
+                                                                      :type,
+                                                                      :name,
+                                                                      :capacity,
+                                                                      :on_duty]) }
         else
             render status: :unprocessable_entity, json: @responder.get_error_messages
         end
