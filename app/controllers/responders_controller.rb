@@ -25,8 +25,19 @@ class RespondersController < ApplicationController
   end
 
   def update
+    if [:emergency_code, :type, :name, :capacity].any? { |attribute| responder_params.key?(attribute) }
+      render status: 422,
+             json: { 'message' => "found unpermitted parameter: #{responder_params.keys.first}" }
+    else
+      @responder = Responder.find_by(name: params[:id])
+      @responder.update_attributes(responder_params)
+      render json: { 'responder' => @responder }
+    end
+  end
+
+  def show
     @responder = Responder.find_by(name: params[:id])
-    @responder.update_attributes(responder_params)
+    render json: { 'responder' => @responder }
   end
 
   private

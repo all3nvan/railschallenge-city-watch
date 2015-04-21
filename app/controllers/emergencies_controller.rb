@@ -25,7 +25,7 @@ class EmergenciesController < ApplicationController
   end
 
   def update
-    if emergency_params.has_key?(:code)
+    if emergency_params.key?(:code)
       render json: { 'message' => 'found unpermitted parameter: code' }
     else
       @emergency = Emergency.find_by(code: params[:id])
